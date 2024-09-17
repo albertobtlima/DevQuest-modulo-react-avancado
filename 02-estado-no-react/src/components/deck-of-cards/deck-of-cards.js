@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 
 async function createDeck() {
   const response = await fetch(
@@ -15,8 +15,45 @@ async function getCards(deckId) {
   return await response.json();
 }
 
-class DeckOfCards extends Component {
-  constructor() {
+const CardsList = (props) => {
+  return (
+    <ul>
+      {props.cards.map((card, index) => {
+        return (
+          <li key={index}>
+            <img src={card.image} alt={card.value} />
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+const DeckOfCards = () => {
+  const [deck, setDeck] = useState({
+    cards: [],
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const deckId = await createDeck();
+      const data = await getCards(deckId);
+
+      setDeck({
+        cards: data.cards,
+      });
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <section>
+      {deck.cards.length > 0 ? <CardsList cards={deck.cards} /> : "Nenhuma carta encontrada"}
+    </section>
+  );
+
+  /* constructor() {
     console.log("constructor");
     super();
     this.state = {
@@ -49,7 +86,7 @@ class DeckOfCards extends Component {
         </ul>
       </section>
     );
-  }
-}
+  }*/
+};
 
 export default DeckOfCards;
