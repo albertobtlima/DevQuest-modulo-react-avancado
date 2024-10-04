@@ -20,7 +20,7 @@ const CardsList = (props) => {
           <li key={index}>
             <img src={card.image} alt={card.value} />
             <p>
-              {card.value} {card.suit}
+              {card.value} OF {card.suit}
             </p>
           </li>
         );

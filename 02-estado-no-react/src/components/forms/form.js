@@ -47,7 +47,7 @@ const Form = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="suit"> da carta</label>
+          <label htmlFor="suit">Naipe da carta</label>
           <input
             type="text"
             id="suit"
