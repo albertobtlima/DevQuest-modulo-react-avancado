@@ -1,11 +1,11 @@
-import { PostsList } from '../components/posts'
+import { PostsList } from "../components/posts";
 
-const Posts = () =>{
-    return (
-        <>
-        <PostsList />
-        </>
-    )
-}
+const Posts = () => {
+  return (
+    <>
+      <PostsList />
+    </>
+  );
+};
 
-export { Posts }
+export { Posts };
