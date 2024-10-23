@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import { CartProductsCounter } from "../cart-products-counter";
 
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cartProducts = useSelector((state) => state.cartProducts);
+  console.log(cartProducts);
+
   return (
     <Container>
       <Link to="/">
@@ -18,12 +22,12 @@ const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2C313F;
+  background-color: #2c313f;
   color: #ffffff;
   padding: 20px 30px;
 
   a {
-      color: #ffffff;
+    color: #ffffff;
   }
 `;
 
